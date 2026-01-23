@@ -1,5 +1,8 @@
 <script setup>
 import { ChevronDownIcon } from '@heroicons/vue/16/solid';
+import useFeedbackForm from '../composables/useFeedbackForm';
+
+const { name, email, category, rating, message, notify } = useFeedbackForm();
 </script>
 
 <template>
@@ -23,6 +26,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
             name="name"
             id="name"
             autocomplete="name"
+            v-model="name"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="What should we call you?"
           />
@@ -40,6 +44,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
             name="email"
             type="email"
             autocomplete="email"
+            v-model="email"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="name@example.com"
           />
@@ -56,6 +61,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
             id="category"
             name="category"
             autocomplete="category-name"
+            v-model="category"
             class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
           >
             <option value="">Please select</option>
@@ -85,6 +91,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="rating"
                 type="radio"
                 value="1"
+                v-model="rating"
                 class="sr-only peer"
               />
               <label
@@ -101,6 +108,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="rating"
                 type="radio"
                 value="2"
+                v-model="rating"
                 class="sr-only peer"
               />
               <label
@@ -117,6 +125,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="rating"
                 type="radio"
                 value="3"
+                v-model="rating"
                 class="sr-only peer"
               />
               <label
@@ -133,6 +142,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="rating"
                 type="radio"
                 value="4"
+                v-model="rating"
                 class="sr-only peer"
               />
               <label
@@ -149,6 +159,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="rating"
                 type="radio"
                 value="5"
+                v-model="rating"
                 class="sr-only peer"
               />
               <label
@@ -171,6 +182,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
             name="message"
             id="message"
             rows="3"
+            v-model="message"
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="Share your thoughts..."
           ></textarea>
@@ -187,6 +199,7 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
                 name="notify"
                 type="checkbox"
                 checked=""
+                v-model="notify"
                 class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
               />
               <svg

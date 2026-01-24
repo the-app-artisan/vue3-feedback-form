@@ -2,11 +2,20 @@
 import { ChevronDownIcon } from '@heroicons/vue/16/solid';
 import useFeedbackForm from '../composables/useFeedbackForm';
 
-const { name, email, category, rating, message, notify } = useFeedbackForm();
+const {
+  name,
+  email,
+  category,
+  rating,
+  message,
+  notify,
+  isSubmitting,
+  handleSubmit,
+} = useFeedbackForm();
 </script>
 
 <template>
-  <form class="bg-white p-8 rounded-lg shadow-md">
+  <form class="bg-white p-8 rounded-lg shadow-md" @submit="handleSubmit">
     <h2 class="text-xl text-center font-semibold text-gray-900">
       Share Your Feedback
     </h2>
@@ -27,6 +36,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
             id="name"
             autocomplete="name"
             v-model="name"
+            required
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="What should we call you?"
           />
@@ -45,6 +55,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
             type="email"
             autocomplete="email"
             v-model="email"
+            required
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="name@example.com"
           />
@@ -62,6 +73,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
             name="category"
             autocomplete="category-name"
             v-model="category"
+            required
             class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
           >
             <option value="">Please select</option>
@@ -92,6 +104,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
                 type="radio"
                 value="1"
                 v-model="rating"
+                required
                 class="sr-only peer"
               />
               <label
@@ -109,6 +122,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
                 type="radio"
                 value="2"
                 v-model="rating"
+                required
                 class="sr-only peer"
               />
               <label
@@ -126,6 +140,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
                 type="radio"
                 value="3"
                 v-model="rating"
+                required
                 class="sr-only peer"
               />
               <label
@@ -143,6 +158,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
                 type="radio"
                 value="4"
                 v-model="rating"
+                required
                 class="sr-only peer"
               />
               <label
@@ -160,6 +176,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
                 type="radio"
                 value="5"
                 v-model="rating"
+                required
                 class="sr-only peer"
               />
               <label
@@ -183,6 +200,7 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
             id="message"
             rows="3"
             v-model="message"
+            required
             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             placeholder="Share your thoughts..."
           ></textarea>
@@ -236,9 +254,10 @@ const { name, email, category, rating, message, notify } = useFeedbackForm();
       <div class="col-span-full">
         <button
           type="submit"
-          class="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          :disabled="isSubmitting"
+          class="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send Feedback
+          {{ isSubmitting ? 'Sending...' : 'Send Feedback' }}
         </button>
       </div>
     </div>

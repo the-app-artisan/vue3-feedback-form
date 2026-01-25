@@ -8,6 +8,7 @@ export default function useFeedbackForm() {
   const message = ref('');
   const notify = ref(true);
   const isSubmitting = ref(false);
+  const showSuccess = ref(false);
 
   // Simulate form submission
   // TODO: Replace with actual API call
@@ -40,8 +41,14 @@ export default function useFeedbackForm() {
     if (isSubmitting.value) return;
     isSubmitting.value = true;
 
-    await sendRequest();
-    isSubmitting.value = false;
+    try {
+      await sendRequest();
+      showSuccess.value = true;
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      isSubmitting.value = false;
+    }
 
     reset();
   };
@@ -54,6 +61,7 @@ export default function useFeedbackForm() {
     message,
     notify,
     isSubmitting,
+    showSuccess,
     handleSubmit,
   };
 }

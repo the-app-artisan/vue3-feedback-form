@@ -1,5 +1,6 @@
 <script setup>
 import { ChevronDownIcon } from '@heroicons/vue/16/solid';
+import FeedbackSuccess from './FeedbackSuccess.vue';
 import useFeedbackForm from '../composables/useFeedbackForm';
 
 const {
@@ -10,12 +11,15 @@ const {
   message,
   notify,
   isSubmitting,
+  showSuccess,
   handleSubmit,
 } = useFeedbackForm();
 </script>
 
 <template>
-  <form class="bg-white p-8 rounded-lg shadow-md" @submit="handleSubmit">
+  <FeedbackSuccess v-if="showSuccess" />
+
+  <form v-else class="bg-white p-8 rounded-lg shadow-md" @submit="handleSubmit">
     <h2 class="text-xl text-center font-semibold text-gray-900">
       Share Your Feedback
     </h2>

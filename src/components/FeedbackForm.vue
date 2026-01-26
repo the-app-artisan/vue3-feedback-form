@@ -2,6 +2,7 @@
 import { ChevronDownIcon } from '@heroicons/vue/16/solid';
 import FeedbackSuccess from './FeedbackSuccess.vue';
 import FeedbackCard from './FeedbackCard.vue';
+import FeedbackFormRating from './FeedbackFormRating.vue';
 import useFeedbackForm from '../composables/useFeedbackForm';
 
 const {
@@ -95,98 +96,7 @@ const {
         </div>
         <!-- Rating -->
         <div class="col-span-full">
-          <fieldset>
-            <legend class="text-sm/6 font-medium text-gray-900">
-              How was your experience?
-            </legend>
-            <div class="mt-4 grid grid-cols-1 sm:grid-cols-5 gap-3">
-              <!-- 1 -->
-              <div>
-                <input
-                  id="rating-1"
-                  name="rating"
-                  type="radio"
-                  value="1"
-                  v-model="rating"
-                  required
-                  class="sr-only peer"
-                />
-                <label
-                  for="rating-1"
-                  class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
-                  >😔</label
-                >
-              </div>
-              <!-- 2 -->
-              <div>
-                <input
-                  id="rating-2"
-                  name="rating"
-                  type="radio"
-                  value="2"
-                  v-model="rating"
-                  required
-                  class="sr-only peer"
-                />
-                <label
-                  for="rating-2"
-                  class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
-                  >😐</label
-                >
-              </div>
-              <!-- 3 -->
-              <div>
-                <input
-                  id="rating-3"
-                  name="rating"
-                  type="radio"
-                  value="3"
-                  v-model="rating"
-                  required
-                  class="sr-only peer"
-                />
-                <label
-                  for="rating-3"
-                  class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
-                  >😊</label
-                >
-              </div>
-              <!-- 4 -->
-              <div>
-                <input
-                  id="rating-4"
-                  name="rating"
-                  type="radio"
-                  value="4"
-                  v-model="rating"
-                  required
-                  class="sr-only peer"
-                />
-                <label
-                  for="rating-4"
-                  class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
-                  >😃</label
-                >
-              </div>
-              <!-- 5 -->
-              <div>
-                <input
-                  id="rating-5"
-                  name="rating"
-                  type="radio"
-                  value="5"
-                  v-model="rating"
-                  required
-                  class="sr-only peer"
-                />
-                <label
-                  for="rating-5"
-                  class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
-                  >🤩</label
-                >
-              </div>
-            </div>
-          </fieldset>
+          <FeedbackFormRating v-model="rating" />
         </div>
         <!-- Message -->
         <div class="col-span-full">

@@ -1,4 +1,5 @@
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
+import type { Feedback } from '../types/feedback';
 
 export default function useFeedbackForm() {
   const name = ref('');
@@ -7,6 +8,16 @@ export default function useFeedbackForm() {
   const rating = ref(0);
   const message = ref('');
   const notify = ref(true);
+
+  const form = reactive<Feedback>({
+    name: '',
+    email: '',
+    category: '',
+    rating: 0,
+    message: '',
+    notify: true,
+  });
+
   const isSubmitting = ref(false);
   const showSuccess = ref(false);
 
@@ -16,23 +27,16 @@ export default function useFeedbackForm() {
     // Wait for 1 sec
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    console.log('Form submitted with data:', {
-      name: name.value,
-      email: email.value,
-      category: category.value,
-      rating: rating.value,
-      message: message.value,
-      notify: notify.value,
-    });
+    console.log('Form submitted with data:', form);
   };
 
   const reset = () => {
-    name.value = '';
-    email.value = '';
-    category.value = '';
-    rating.value = 0;
-    message.value = '';
-    notify.value = true;
+    form.name = '';
+    form.email = '';
+    form.category = '';
+    form.rating = 0;
+    form.message = '';
+    form.notify = true;
   };
 
   const handleSubmit = async (event: SubmitEvent) => {
@@ -54,12 +58,7 @@ export default function useFeedbackForm() {
   };
 
   return {
-    name,
-    email,
-    category,
-    rating,
-    message,
-    notify,
+    form,
     isSubmitting,
     showSuccess,
     handleSubmit,

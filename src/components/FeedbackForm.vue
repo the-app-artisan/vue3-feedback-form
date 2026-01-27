@@ -5,17 +5,7 @@ import FeedbackCard from './FeedbackCard.vue';
 import FeedbackFormRating from './FeedbackFormRating.vue';
 import useFeedbackForm from '../composables/useFeedbackForm';
 
-const {
-  name,
-  email,
-  category,
-  rating,
-  message,
-  notify,
-  isSubmitting,
-  showSuccess,
-  handleSubmit,
-} = useFeedbackForm();
+const { form, isSubmitting, showSuccess, handleSubmit } = useFeedbackForm();
 </script>
 
 <template>
@@ -41,7 +31,7 @@ const {
               name="name"
               id="name"
               autocomplete="name"
-              v-model="name"
+              v-model="form.name"
               required
               class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               placeholder="What should we call you?"
@@ -59,7 +49,7 @@ const {
               name="email"
               type="email"
               autocomplete="email"
-              v-model="email"
+              v-model="form.email"
               required
               class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               placeholder="name@example.com"
@@ -78,7 +68,7 @@ const {
               id="category"
               name="category"
               autocomplete="category-name"
-              v-model="category"
+              v-model="form.category"
               required
               class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             >
@@ -96,7 +86,7 @@ const {
         </div>
         <!-- Rating -->
         <div class="col-span-full">
-          <FeedbackFormRating v-model="rating" />
+          <FeedbackFormRating v-model="form.rating" />
         </div>
         <!-- Message -->
         <div class="col-span-full">
@@ -108,7 +98,7 @@ const {
               name="message"
               id="message"
               rows="3"
-              v-model="message"
+              v-model="form.message"
               required
               class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               placeholder="Share your thoughts..."
@@ -125,7 +115,7 @@ const {
                   name="notify"
                   type="checkbox"
                   checked=""
-                  v-model="notify"
+                  v-model="form.notify"
                   class="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                 />
                 <svg

@@ -2,14 +2,7 @@ import { reactive, ref } from 'vue';
 import type { Feedback } from '../types/feedback';
 
 export default function useFeedbackForm() {
-  const name = ref('');
-  const email = ref('');
-  const category = ref('');
-  const rating = ref(0);
-  const message = ref('');
-  const notify = ref(true);
-
-  const form = reactive<Feedback>({
+  const createInitialFormState = () => ({
     name: '',
     email: '',
     category: '',
@@ -17,6 +10,8 @@ export default function useFeedbackForm() {
     message: '',
     notify: true,
   });
+
+  const form = reactive<Feedback>(createInitialFormState());
 
   const isSubmitting = ref(false);
   const showSuccess = ref(false);
@@ -31,12 +26,7 @@ export default function useFeedbackForm() {
   };
 
   const reset = () => {
-    form.name = '';
-    form.email = '';
-    form.category = '';
-    form.rating = 0;
-    form.message = '';
-    form.notify = true;
+    Object.assign(form, createInitialFormState());
   };
 
   const handleSubmit = async (event: SubmitEvent) => {

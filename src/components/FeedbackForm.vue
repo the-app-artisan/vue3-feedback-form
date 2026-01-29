@@ -3,9 +3,17 @@ import { ChevronDownIcon } from '@heroicons/vue/16/solid';
 import FeedbackSuccess from './FeedbackSuccess.vue';
 import FeedbackCard from './FeedbackCard.vue';
 import FeedbackFormRating from './FeedbackFormRating.vue';
+import NotificationMessage from './NotificationMessage.vue';
 import useFeedbackForm from '../composables/useFeedbackForm';
 
-const { form, isSubmitting, showSuccess, handleSubmit } = useFeedbackForm();
+const {
+  form,
+  isSubmitting,
+  showSuccess,
+  notificationMessage,
+  notificationType,
+  handleSubmit,
+} = useFeedbackForm();
 </script>
 
 <template>
@@ -160,4 +168,9 @@ const { form, isSubmitting, showSuccess, handleSubmit } = useFeedbackForm();
       </div>
     </form>
   </FeedbackCard>
+
+  <NotificationMessage
+    :message="notificationMessage"
+    :type="notificationType"
+  />
 </template>

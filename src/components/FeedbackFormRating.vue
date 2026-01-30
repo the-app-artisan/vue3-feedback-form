@@ -28,7 +28,7 @@ const ratings = [
         />
         <label
           :for="`rating-${rating.value}`"
-          class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-indigo-600 peer-checked:outline-indigo-600 peer-checked:outline-2"
+          class="flex items-center justify-center outline-1 outline-gray-300 p-3 rounded-md text-2xl transition-all hover:scale-110 hover:outline-primary peer-checked:outline-primary peer-checked:outline-2"
         >
           {{ rating.emoji }}
         </label>

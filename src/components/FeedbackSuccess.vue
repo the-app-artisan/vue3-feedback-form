@@ -6,7 +6,7 @@ import FeedbackCard from './FeedbackCard.vue';
 <template>
   <FeedbackCard>
     <div class="min-h-72 flex flex-col items-center justify-center">
-      <CheckIcon class="text-indigo-600 w-16 h-16" />
+      <CheckIcon class="text-primary w-16 h-16" />
       <h2 class="text-xl text-center font-semibold text-gray-900">
         Thank you for your feedback!
       </h2>

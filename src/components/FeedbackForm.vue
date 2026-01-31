@@ -21,16 +21,20 @@ const {
 
   <FeedbackCard v-else>
     <form @submit="handleSubmit">
-      <h2 class="text-xl text-center font-semibold text-gray-900">
+      <h2
+        class="text-xl text-center font-semibold text-gray-900 dark:text-white"
+      >
         Share Your Feedback
       </h2>
-      <p class="mt-1 text-sm/6 text-center text-gray-600">
+      <p class="mt-1 text-sm/6 text-center text-gray-600 dark:text-gray-400">
         We are always looking to improve
       </p>
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <!-- Name -->
         <div class="col-span-full">
-          <label for="name" class="block text-sm/6 font-medium text-gray-900"
+          <label
+            for="name"
+            class="block text-sm/6 font-medium text-gray-900 dark:text-white"
             >Your Name</label
           >
           <div class="mt-2">
@@ -41,14 +45,16 @@ const {
               autocomplete="name"
               v-model="form.name"
               required
-              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-primary/90"
               placeholder="What should we call you?"
             />
           </div>
         </div>
         <!-- Email -->
         <div class="col-span-full">
-          <label for="email" class="block text-sm/6 font-medium text-gray-900"
+          <label
+            for="email"
+            class="block text-sm/6 font-medium text-gray-900 dark:text-white"
             >Your Email</label
           >
           <div class="mt-2">
@@ -59,7 +65,7 @@ const {
               autocomplete="email"
               v-model="form.email"
               required
-              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-primary/90"
               placeholder="name@example.com"
             />
           </div>
@@ -68,7 +74,7 @@ const {
         <div class="col-span-full">
           <label
             for="category"
-            class="block text-sm/6 font-medium text-gray-900"
+            class="block text-sm/6 font-medium text-gray-900 dark:text-white"
             >Category</label
           >
           <div class="mt-2 grid grid-cols-1">
@@ -78,7 +84,7 @@ const {
               autocomplete="category-name"
               v-model="form.category"
               required
-              class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+              class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-primary/90"
             >
               <option value="">Please select</option>
               <option value="bug">Bug Report</option>
@@ -87,7 +93,7 @@ const {
               <option value="other">Other</option>
             </select>
             <ChevronDownIcon
-              class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
+              class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4 dark:text-gray-400"
               aria-hidden="true"
             />
           </div>
@@ -98,7 +104,9 @@ const {
         </div>
         <!-- Message -->
         <div class="col-span-full">
-          <label for="message" class="block text-sm/6 font-medium text-gray-900"
+          <label
+            for="message"
+            class="block text-sm/6 font-medium text-gray-900 dark:text-white"
             >Message</label
           >
           <div class="mt-2">
@@ -108,7 +116,7 @@ const {
               rows="3"
               v-model="form.message"
               required
-              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+              class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-primary/90"
               placeholder="Share your thoughts..."
             ></textarea>
           </div>
@@ -149,7 +157,7 @@ const {
               </div>
             </div>
             <div class="text-sm/6">
-              <label for="notify" class="text-gray-900">
+              <label for="notify" class="text-gray-900 dark:text-white">
                 Email me about updates
               </label>
             </div>

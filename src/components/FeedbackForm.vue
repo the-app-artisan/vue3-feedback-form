@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { ChevronDownIcon } from '@heroicons/vue/16/solid';
 import FeedbackSuccess from './FeedbackSuccess.vue';
 import FeedbackCard from './FeedbackCard.vue';
